@@ -1,4 +1,4 @@
-# Ne ljuti se čoveče
+# Ne ljuti se čoveče :game_die:
 
 ## Kratak opis igre
 
@@ -6,7 +6,7 @@ Ne ljuti se čoveče je igrica za 2 ili 3 igrača. Cilj igre je prvi doći do ci
 
 ## Programski jezici i tehnologije
 
-Igrica će biti izrađena u programskom jeziku Lua.
+Igrica će biti izrađena u programskom jeziku Lua korišćenjem LÖVE framework-a.
 
 ## Autori
 
