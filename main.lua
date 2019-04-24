@@ -90,14 +90,14 @@ pijuni= {kamila,koala,lav,lisica,panda,rakun,zec,zirafa}
 
 
 igraci2 = {
-   Prvi = { Ime = "Prvi Igrac", PoljeNaKomJe = 0, Slicica = pijuni[1]},
-   Drugi = { Ime = "Drugi Igrac", PoljeNaKomJe = 0, Slicica = pijuni[2]}
+   Prvi = { Ime = "Prvi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[1]},
+   Drugi = { Ime = "Drugi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[2]}
 }
 
 igraci3 = {
-   Prvi = { Ime = "Prvi Igrac", PoljeNaKomJe = 0, Slicica = pijuni[1]},
-   Drugi = { Ime = "Drugi Igrac", PoljeNaKomJe = 0, Slicica = pijuni[2]},
-   Treci = { Ime = "Treci Igrac", PoljeNaKomJe = 0, Slicica = pijuni[3]}    
+   Prvi = { Ime = "Prvi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[1]},
+   Drugi = { Ime = "Drugi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[2]},
+   Treci = { Ime = "Treci Igrac", PoljeNaKomJe = 1, Slicica = pijuni[3]}    
 }
 
 -- if OdaberiBroj == 2 then
