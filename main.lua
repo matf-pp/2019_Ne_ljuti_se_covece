@@ -22,9 +22,11 @@ local igraci2   ----> ako se odabere OPCIJA DVA IGRACA   ----> igraci = igraci2
 local igraci3   ----> ako se odabere OPCIJA TRI IGRACA   ----> igraci = igraci3
 
 --treba da se doda izbor broja igraca, stavljeno podrazumevano dva trenutno(Natalija)
-brojIgraca = 2
+brojIgraca = 2    ---> probaj i za 3 ako zelis...
 brojac = 0
 local tekst
+local tekst3
+local tekst4
 local font
 broj=0
 local korak
@@ -37,81 +39,31 @@ function love.draw()
       love.graphics.draw(kockica,835,475)
       love.graphics.draw(tekst,15,40)
       love.graphics.draw(tekst2,15,15)
+      love.graphics.draw(tekst3,280,300)
+      love.graphics.draw(tekst4,300,15)
       
-      
-      
-      if brojIgraca==2 then
-        love.graphics.draw(igraci["Prvi"]["Slicica"],tabla[igraci["Prvi"]["PoljeNaKomJe"]]["sirina"],tabla[igraci["Prvi"]["PoljeNaKomJe"]]["visina"])
-        love.graphics.draw(igraci["Drugi"]["Slicica"],tabla[igraci["Drugi"]["PoljeNaKomJe"]]["sirina"],tabla[igraci["Drugi"]["PoljeNaKomJe"]]["visina"])
-      else
-        love.graphics.draw(igraci["Prvi"]["Slicica"],tabla[igraci["Prvi"]["PoljeNaKomJe"]]["sirina"],tabla[igraci["Prvi"]["PoljeNaKomJe"]]["visina"])
-        love.graphics.draw(igraci["Drugi"]["Slicica"],tabla[igraci["Drugi"]["PoljeNaKomJe"]]["sirina"],tabla[igraci["Drugi"]["PoljeNaKomJe"]]["visina"])
-        love.graphics.draw(igraci["Treci"]["Slicica"],tabla[igraci["Treci"]["PoljeNaKomJe"]]["sirina"],tabla[igraci["Treci"]["PoljeNaKomJe"]]["visina"])
+      love.graphics.draw(igraci[1]["Slicica"],tabla[igraci[1]["PoljeNaKomJe"]]["sirina"],tabla[igraci[1]["PoljeNaKomJe"]]["visina"])
+      love.graphics.draw(igraci[2]["Slicica"],tabla[igraci[2]["PoljeNaKomJe"]]["sirina"],tabla[igraci[2]["PoljeNaKomJe"]]["visina"])
+      if brojIgraca==3 then
+          love.graphics.draw(igraci[3]["Slicica"],tabla[igraci[3]["PoljeNaKomJe"]]["sirina"],tabla[igraci[3]["PoljeNaKomJe"]]["visina"])
       end
       
 ----> izmenila sam da se uvek poziva sa igraci(dole ima provera za koliko igraca i postavi odgovarajucu tabelu) umesto igraci2 i igraci3 (bilo mi je lakse da se snadjem...)
 
-  if brojIgraca == 2 then
-    if math.fmod(brojac,brojIgraca)==0 then
-      tekst:set(igraci["Prvi"]["Ime"].." je na redu. Baci kockicu!",25,25)
-      igrac=igraci["Prvi"]
-      if igraci["Prvi"]["PoljeNaKomJe"] + broj <= 23 then
-        korak=igraci["Prvi"]["PoljeNaKomJe"]+broj
-        igraci["Prvi"]["PoljeNaKomJe"]=korak
-        if igraci["Drugi"]["PoljeNaKomJe"]==korak then
-          igraci["Drugi"]["PoljeNaKomJe"]=1
-        end
-      end
-    else
-      tekst:set(igraci["Drugi"]["Ime"].." je na redu. Baci kockicu!",25,25)
-      igrac=igraci["Drugi"]
-      if igraci["Drugi"]["PoljeNaKomJe"]+broj<=23 then
-        korak=igraci["Drugi"]["PoljeNaKomJe"]+broj
-        igraci["Drugi"]["PoljeNaKomJe"]=korak
-        if igraci["Prvi"]["PoljeNaKomJe"]==korak then
-          igraci ["Prvi"]["PoljeNaKomJe"]=1
-        end
-      end
+    if (brojac % brojIgraca) == 0 then
+         tekst:set(igraci[1]["Ime"].." je na redu. Baci kockicu!",25,25)
+         igrac=igraci[1]
+         redniBroj=1
+    else if (brojac % brojIgraca) == 1 then
+      tekst:set(igraci[2]["Ime"].." je na redu. Baci kockicu!",25,25)
+      igrac=igraci[2]
+      redniBroj=2
+         else 
+             tekst:set(igraci[3]["Ime"].." je na redu. Baci kockicu!",25,25)
+             igrac=igraci[3]
+             redniBroj=3
+         end 
     end
-  else
-    if math.fmod(brojac,brojIgraca)==0 then
-      tekst:set(igraci["Prvi"]["Ime"].." je na redu. Baci kockicu!",25,25)
-      igrac=igraci["Prvi"]
-      if igraci["Prvi"]["PoljeNaKomJe"] + broj <= 23 then
-        korak=igraci["Prvi"]["PoljeNaKomJe"]+broj
-        igraci["Prvi"]["PoljeNaKomJe"]=korak
-        if igraci["Drugi"]["PoljeNaKomJe"]==korak then
-          igraci["Drugi"]["PoljeNaKomJe"]=1
-        elseif igraci["Treci"]["PoljeNaKomJe"]==korak then
-          igraci["Treci"]["PoljeNaKomJe"]=1
-        end
-      end
-    elseif math.fmod(brojac,brojIgraca)==1 then
-      tekst:set(igraci["Drugi"]["Ime"].." je na redu. Baci kockicu!",25,25)
-      igrac=igraci["Drugi"]
-      if igraci["Drugi"]["PoljeNaKomJe"] + broj <= 23 then
-        korak=igraci["Drugi"]["PoljeNaKomJe"]+broj
-        igraci["Drugi"]["PoljeNaKomJe"]=korak
-        if igraci["Prvi"]["PoljeNaKomJe"]==korak then
-          igraci["Prvi"]["PoljeNaKomJe"]=1
-        elseif igraci["Treci"]["PoljeNaKomJe"]==korak then
-          igraci["Treci"]["PoljeNaKomJe"]=1
-        end
-      end
-    else
-      tekst:set(igraci["Treci"]["Ime"].." je na redu. Baci kockicu!",25,25)                                 
-      igrac=igraci["Treci"]
-      if igraci["Treci"]["PoljeNaKomJe"] + broj <= 23 then
-        korak=igraci["Treci"]["PoljeNaKomJe"]+broj
-        igraci["Treci"]["PoljeNaKomJe"]=korak
-        if igraci["Drugi"]["PoljeNaKomJe"]==korak then
-          igraci["Drugi"]["PoljeNaKomJe"]=1
-        elseif igraci["Prvi"]["PoljeNaKomJe"]==korak then
-          igraci["Prvi"]["PoljeNaKomJe"]=1
-        end
-      end
-    end
- end
  
 end
 
@@ -127,6 +79,39 @@ function izracunaj()
     broj=math.random(6)
     tekst2:set(igrac["Ime"].." dobili ste broj "..tostring(broj).."!")
     brojac=brojac+1
+   if igrac["PoljeNaKomJe"] + broj > 23 then
+        neMozeDalje(igrac)
+   end
+   if igrac["PoljeNaKomJe"] + broj == 23 then
+        korak=igrac["PoljeNaKomJe"]+broj
+        igrac["PoljeNaKomJe"]=korak
+        cestitamo(igrac)
+   end
+   if igrac["PoljeNaKomJe"] + broj < 23 then
+          korak=igrac["PoljeNaKomJe"]+broj
+          igrac["PoljeNaKomJe"]=korak
+          for k,v in pairs(igraci) do
+              if k ~= redniBroj then
+                 if igraci[k]["PoljeNaKomJe"] == korak then
+                    igraci[k]["PoljeNaKomJe"]=1
+                    pojedenSi(igrac,igraci[k])
+                 end
+              end      
+          end       
+   end
+   
+end
+
+function pojedenSi(igrac,pojedeni)
+     tekst4:set(igrac["Ime"]..", pojeo si " .. pojedeni["Ime"] .. "!") ------> moze nastati problem ako igraci zadaju predugacko ime, zato OGRANICI IME IGRACA! [mozda ce se preklopiti delom tekstovi u suprotnom]
+end
+
+function neMozeDalje(igrac)
+     tekst4:set(igrac["Ime"]..", zao mi je, ne mozes dalje...")------> moze nastati problem ako igraci zadaju predugacko ime, zato OGRANICI IME IGRACA! [mozda ce se preklopiti delom tekstovi u suprotnom]
+end
+
+function cestitamo(igrac)
+     tekst3:set(igrac["Ime"]..", cestitamo!!! Vi ste pobednik! ")  -----> ovde jos nisam blokirala da nastave da udaraju kockicu i da se krecu ostali dok ne stignu do cilja.... [ALI TU IDE NOVI PROZOR? i tamo cete ispisati cestitamo,igraj ponovo/izadji?]
 end
 
 function love.load() 
@@ -151,19 +136,21 @@ function love.load()
        font=love.graphics.newFont(20)
        tekst=love.graphics.newText(font,"")
        tekst2=love.graphics.newText(font,"")
+       tekst3=love.graphics.newText(font,"")
+       tekst4=love.graphics.newText(font,"")
 
        
 pijuni= {kamila,koala,lav,lisica,panda,rakun,zec,zirafa}  
 
 igraci2 = {
-   Prvi = { Ime = "Prvi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[1]},
-   Drugi = { Ime = "Drugi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[2]}
+    { Ime = "Prvi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[1]},
+    { Ime = "Drugi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[2]}
 }
 
 igraci3 = {
-   Prvi = { Ime = "Prvi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[1]},
-   Drugi = { Ime = "Drugi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[2]},
-   Treci = { Ime = "Treci Igrac", PoljeNaKomJe = 1, Slicica = pijuni[3]}    
+    { Ime = "Prvi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[1]},
+    { Ime = "Drugi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[2]},
+    { Ime = "Treci Igrac", PoljeNaKomJe = 1, Slicica = pijuni[3]}    
 }
 
 
