@@ -1,5 +1,5 @@
 local muzika
-local jacina = 0.3
+local jacina = 0.5
 
 local pozadina
 
@@ -206,7 +206,7 @@ end
 function love.keypressed(key)
     
    if (key == "m") then jacina = 0.0 end
-   if (key == "u") then jacina = 0.3 end               ---> mute i unmute za pozadinsku muziku ---> klikom na m tj. na u
+   if (key == "u") then jacina = 0.5 end               ---> mute i unmute za pozadinsku muziku ---> klikom na m tj. na u
    
    love.audio.setVolume(jacina)
    
