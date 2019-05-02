@@ -21,8 +21,6 @@ local igraci = {}
 local igraci2   ----> ako se odabere OPCIJA DVA IGRACA   ----> igraci = igraci2
 local igraci3   ----> ako se odabere OPCIJA TRI IGRACA   ----> igraci = igraci3
 
--- local pozicija = 1   -----> STA JE OVO? CINI MI SE DA SE NIGDE NE KORISTI?
-
 --treba da se doda izbor broja igraca, stavljeno podrazumevano dva trenutno(Natalija)
 brojIgraca = 2
 brojac = 0
@@ -31,7 +29,7 @@ local font
 broj=0
 local korak
 local igrac
-local transform
+math.randomseed(os.time())
 
 function love.draw()
 
@@ -58,13 +56,21 @@ function love.draw()
       tekst:set(igraci["Prvi"]["Ime"].." je na redu. Baci kockicu!",25,25)
       igrac=igraci["Prvi"]
       if igraci["Prvi"]["PoljeNaKomJe"] + broj <= 23 then
-          igraci["Prvi"]["PoljeNaKomJe"]=igraci["Prvi"]["PoljeNaKomJe"]+broj
+        korak=igraci["Prvi"]["PoljeNaKomJe"]+broj
+        igraci["Prvi"]["PoljeNaKomJe"]=korak
+        if igraci["Drugi"]["PoljeNaKomJe"]==korak then
+          igraci["Drugi"]["PoljeNaKomJe"]=1
+        end
       end
     else
       tekst:set(igraci["Drugi"]["Ime"].." je na redu. Baci kockicu!",25,25)
       igrac=igraci["Drugi"]
       if igraci["Drugi"]["PoljeNaKomJe"]+broj<=23 then
-        igraci["Drugi"]["PoljeNaKomJe"]=igraci["Drugi"]["PoljeNaKomJe"]+broj
+        korak=igraci["Drugi"]["PoljeNaKomJe"]+broj
+        igraci["Drugi"]["PoljeNaKomJe"]=korak
+        if igraci["Prvi"]["PoljeNaKomJe"]==korak then
+          igraci ["Prvi"]["PoljeNaKomJe"]=1
+        end
       end
     end
   else
@@ -72,25 +78,43 @@ function love.draw()
       tekst:set(igraci["Prvi"]["Ime"].." je na redu. Baci kockicu!",25,25)
       igrac=igraci["Prvi"]
       if igraci["Prvi"]["PoljeNaKomJe"] + broj <= 23 then
-          igraci["Prvi"]["PoljeNaKomJe"]=igraci["Prvi"]["PoljeNaKomJe"]+broj   --->zaboravila si ovde provere i kretanje
+        korak=igraci["Prvi"]["PoljeNaKomJe"]+broj
+        igraci["Prvi"]["PoljeNaKomJe"]=korak
+        if igraci["Drugi"]["PoljeNaKomJe"]==korak then
+          igraci["Drugi"]["PoljeNaKomJe"]=1
+        elseif igraci["Treci"]["PoljeNaKomJe"]==korak then
+          igraci["Treci"]["PoljeNaKomJe"]=1
+        end
       end
-    else if math.fmod(brojac,brojIgraca)==1 then
+    elseif math.fmod(brojac,brojIgraca)==1 then
       tekst:set(igraci["Drugi"]["Ime"].." je na redu. Baci kockicu!",25,25)
       igrac=igraci["Drugi"]
-      if igraci["Drugi"]["PoljeNaKomJe"]+broj<=23 then
-        igraci["Drugi"]["PoljeNaKomJe"]=igraci["Drugi"]["PoljeNaKomJe"]+broj  --->zaboravila si ovde provere i kretanje
+      if igraci["Drugi"]["PoljeNaKomJe"] + broj <= 23 then
+        korak=igraci["Drugi"]["PoljeNaKomJe"]+broj
+        igraci["Drugi"]["PoljeNaKomJe"]=korak
+        if igraci["Prvi"]["PoljeNaKomJe"]==korak then
+          igraci["Prvi"]["PoljeNaKomJe"]=1
+        elseif igraci["Treci"]["PoljeNaKomJe"]==korak then
+          igraci["Treci"]["PoljeNaKomJe"]=1
+        end
       end
     else
       tekst:set(igraci["Treci"]["Ime"].." je na redu. Baci kockicu!",25,25)                                 
       igrac=igraci["Treci"]
       if igraci["Treci"]["PoljeNaKomJe"] + broj <= 23 then
-          igraci["Treci"]["PoljeNaKomJe"]=igraci["Treci"]["PoljeNaKomJe"]+broj    --->zaboravila si ovde provere i kretanje 
+        korak=igraci["Treci"]["PoljeNaKomJe"]+broj
+        igraci["Treci"]["PoljeNaKomJe"]=korak
+        if igraci["Drugi"]["PoljeNaKomJe"]==korak then
+          igraci["Drugi"]["PoljeNaKomJe"]=1
+        elseif igraci["Prvi"]["PoljeNaKomJe"]==korak then
+          igraci["Prvi"]["PoljeNaKomJe"]=1
+        end
       end
-         end
     end
  end
  
 end
+
 function love.mousepressed(x,y,button,isTouched)
     if x>835 and x<950 and y>475 and y<600 then
       izracunaj()
@@ -100,13 +124,10 @@ end
         
 
 function izracunaj()
-    math.randomseed(os.time())
     broj=math.random(6)
     tekst2:set(igrac["Ime"].." dobili ste broj "..tostring(broj).."!")
-    
     brojac=brojac+1
-    
-  end
+end
 
 function love.load() 
     
