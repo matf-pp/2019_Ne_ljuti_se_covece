@@ -18,9 +18,9 @@ local pitanja = {{"Grcka boginja ljubavi zove se: ","a) Atina","b) Afrodita", "c
   {"Broj 100 pisan rimskim brojevima je:","a) L","b) M","c) D","d) C",4},
   {"Formula za racunanje povrsine kvadrata glasi:","a) a+a","b) a-b","c) a*b","d) a*a",4}
 }
-local brojPitanja = 3
+local brojPitanja = 3 --ovo je samo random pitanje da bih videla da li radi, to treba da bude ono pozicija igraca koja se salje iz maina
 local odgovorIgraca
-tacan = true 
+tacan = true --mislila sam da ovoj promenljivoj pristupamo iz maina da bi se proverilo da li je odgovor tacan ()moze i neka druga ideja,slobodno)
 
 
 function love.draw()
