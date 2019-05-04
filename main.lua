@@ -18,8 +18,13 @@ local tabla = {
     {sirina=100,visina=160}, {sirina=100,visina=250}, {sirina=100,visina=340}, {sirina=100,visina=430}, {sirina=160,visina=470}, {sirina=230,visina=440}, {sirina=300,visina=400}, {sirina=380,visina=400}, {sirina=420,visina=320}, {sirina=400,visina=240}, {sirina=400,visina=160}, {sirina=460,visina=120}, {sirina=520,visina=130}, {sirina=590,visina=120}, {sirina=650,visina=120}, {sirina=650,visina=210}, {sirina=600,visina=260}, {sirina=550,visina=320}, {sirina=580,visina=400}, {sirina=650,visina=440}, {sirina=720,visina=410}, {sirina=790,visina=360}, {sirina=770,visina=280}
 }  ----> po kojoj mrdamo igrace
 igraci = {}
-local igraci2   ----> ako se odabere OPCIJA DVA IGRACA   ----> igraci = igraci2
-local igraci3   ----> ako se odabere OPCIJA TRI IGRACA   ----> igraci = igraci3
+local igraci2
+local igraci3
+if brojIgraca==2 then 
+    igraci=igraci2
+else
+    igraci=igraci3
+end
 
 --treba da se doda izbor broja igraca, stavljeno podrazumevano dva trenutno(Natalija)
 brojIgraca = 2    ---> probaj i za 3 ako zelis...
