@@ -158,6 +158,7 @@ function izracunaj()
    end
    if korak < 23 then ----> Ovo je menjano
           prom = "pitanje"
+          tekst4:set("")
           if odgovorIgraca == pitanjal[korak][6] then 
             igrac["PoljeNaKomJe"]=korak+1
           else
