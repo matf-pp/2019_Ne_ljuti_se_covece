@@ -166,7 +166,7 @@ function izracunaj()
 
           igrac["PoljeNaKomJe"]=korak
           for k,v in pairs(igraci) do
-              if k ~= redniBroj then
+              if not k == redniBroj then
                  if igraci[k]["PoljeNaKomJe"] == korak then
                     igraci[k]["PoljeNaKomJe"]=1
                     pojedenSi(igrac,igraci[k])
