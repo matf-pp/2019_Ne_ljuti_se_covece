@@ -20,11 +20,6 @@ local tabla = {
 igraci = {}
 local igraci2
 local igraci3
-if brojIgraca==2 then 
-    igraci=igraci2
-else
-    igraci=igraci3
-end
 
 --treba da se doda izbor broja igraca, stavljeno podrazumevano dva trenutno(Natalija)
 brojIgraca = 2    ---> probaj i za 3 ako zelis...
