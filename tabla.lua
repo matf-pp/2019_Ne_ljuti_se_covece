@@ -108,11 +108,11 @@ if (brojac % brojIgraca) == 0 then
   love.graphics.rectangle('fill', 400, 450, 200, 60, 35, 35)
 
   love.graphics.setColor(0, 0, 255, 100)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][1],250,120,200)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][2],150,320,150)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][3],450,320,150)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][4],150,470,150)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][5],450,470,150)
+  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][1],250,120,200)
+  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][2],150,320,150)
+  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][3],450,320,150)
+  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][4],150,470,150)
+  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][5],450,470,150)
  
 end
 end
@@ -158,7 +158,7 @@ function izracunaj()
    end
    if igrac["PoljeNaKomJe"] + broj < 23 then ----> Ovo je menjano
           prom = "pitanje"
-          if odgovorIgraca == pitanjal[igrac["PoljeNaKomJe"]][6] then 
+          if odgovorIgraca == pitanjal[igrac["PoljeNaKomJe"]+broj][6] then 
           korak=igrac["PoljeNaKomJe"]+broj
           else
             korak=igrac["PoljeNaKomJe"]+0
