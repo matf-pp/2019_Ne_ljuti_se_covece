@@ -243,21 +243,26 @@ function love.mousepressed (x, y)
     
 end
 
-function love.keypressed()
+function love.keypressed(key)
+  
   if key=="backspace" then
-    text=""
-    if textbox1.active then
-      textbox1.text=string.sub(textbox1.text,1,-2)
-    elseif textbox2.active then
-      textbox2.text=string.sub(textbox2.text,1,-2)
-    elseif brojIgraca==3 and textbox3.active then
-      textbox3.text=string.sub(textbox3.text,1,-2)
-    end
-  elseif key=="space" then
-    text=" "
-  else
-    text=key
+       text=""
+       if textbox1.active then
+           textbox1.text=string.sub(textbox1.text,1,19) .. string.sub(textbox1.text,20,-2)
+       else if textbox2.active then
+                 textbox2.text=string.sub(textbox2.text,1,20) .. string.sub(textbox2.text,21,-2)
+            else if brojIgraca==3 and textbox3.active then
+                      textbox3.text=string.sub(textbox3.text,1,20) .. string.sub(textbox3.text,21,-2)
+                 end
+            end
+       end
+  else if key=="space" then
+            text=" "
+       else
+            text=key
+       end
   end
+  
 end
 
 function love.quit()
