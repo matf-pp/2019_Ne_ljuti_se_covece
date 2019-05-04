@@ -20,8 +20,8 @@ end
 
 function love.mousepressed(x,y,button,isTouched)
     if x>100 and x<300 and y>400 and y<470 then
-      require("pocetni")
-    end
+           love.event.quit("restart")
+  end
     if x>500 and x<700 and y>400 and y<470 then
            love.event.quit()
     end
