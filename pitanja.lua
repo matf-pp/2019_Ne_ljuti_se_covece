@@ -1,13 +1,10 @@
-cal M = {}
-
-M.font = love.graphics.newFont("mojFont.ttf",50)
-M.pozadina = love.graphics.newImage("pocetna.jpg") 
-M.pitanje = ''
-M.odgovor1 = ''
-M.odgovor2 = ''
-M.odgovor3 = ''
-M.odgovor4 = ''
-M.pitanjal ={
+pozadina = love.graphics.newImage("pocetna.jpg") 
+local pitanje  
+local odgovor1 
+local odgovor2 
+local odgovor3  
+local odgovor4  
+pitanjal ={
   {"Grcka boginja ljubavi zove se: ","a) Atina","b) Afrodita", "c) Venera", "d) Hera", 2},
   {"Broj 100 pisan rimskim brojevima je:","a) L","b) M","c) D","d) C",4},
   {"Ameriku je otkrio: ","a) Vasko de Gama","b) Ferdinand Magelan", "c) Pedro Kabral", "d) Kristofer Kolumbo",4},
@@ -32,11 +29,11 @@ M.pitanjal ={
 {}}
 
 brojPitanjal = 0
-M.odgovorIgraca = 0
+odgovorIgraca = 0
 
-function M.Draw()
+function love.draw()
 	love.graphics.setColor(1,1,1,1)
-	love.graphics.draw(M.pozadina)
+	love.graphics.draw(pozadina)
 
 	love.graphics.setColor(255/255,255/255,153/255,1)
 	love.graphics.rectangle('fill', 200, 100, 300, 150,35,35)
@@ -46,40 +43,43 @@ function M.Draw()
 	love.graphics.rectangle('fill', 400, 450, 200, 60, 35, 35)
 
 	love.graphics.setColor(0, 0, 255, 100)
-	love.graphics.printf(pitanjal[19][1],250,120,200)
-	love.graphics.printf(pitanjal[3][2],150,320,150)
-	love.graphics.printf(pitanjal[3][3],450,320,150)
-	love.graphics.printf(pitanjal[3][4],150,470,150)
-	love.graphics.printf(pitanjal[3][5],450,470,150)
+	love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][1],250,120,200)
+	love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][2],150,320,150)
+	love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][3],450,320,150)
+	love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][4],150,470,150)
+	love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]][5],450,470,150)
 
 
 
 
 end
 
-
 	
-function M.tacan (brojPitanjal)
 
-	function love.mousepressed(x,y,button,isTouched)
-		if x>100 and x<300 and y>300 and y<360 then 
-			odgovorIgraca = 1
-			prom = 
-		end
-
-		if x>400 and x<600 and y>300 and y<360 then 
-			odgovorIgraca = 2
-		end
-
-		if x>100 and x<300 and y>450 and y<510 then 
-			odgovorIgraca = 3
-		end
-
-		if x>400 and x<600 and y>450 and y<510 then 
-			odgovorIgraca = 4
-		end
-
+function love.mousepressed(x,y,button,isTouched)
+	if x>100 and x<300 and y>300 and y<360 then 
+		odgovorIgraca = 1
+		require("tabla") 
 	end
+
+	if x>400 and x<600 and y>300 and y<360 then 
+		odgovorIgraca = 2
+		require("tabla")
+	end
+
+	if x>100 and x<300 and y>450 and y<510 then 
+		odgovorIgraca = 3
+		require("tabla")
+	end
+
+	if x>400 and x<600 and y>450 and y<510 then 
+		odgovorIgraca = 4
+		require("tabla")
+	end
+
+end
+
+function tacan (brojPitanjal)
 
 	if (odgovorIgraca == pitanja[brojPitanjal]) then
 		return true 
@@ -89,5 +89,6 @@ function M.tacan (brojPitanjal)
 end
 
 
-return M
+
+
 	
