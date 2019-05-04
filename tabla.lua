@@ -117,7 +117,7 @@ if (brojac % brojIgraca) == 0 then
 end
 end
 
-function love.mousepressed(x,y,button,isTouched)
+function love.mousepressed(x,y,button,isTouched) ------> Ovo je menjano
     if prom == "tabla" and x>835 and x<950 and y>475 and y<600 then
       izracunaj()
     end
@@ -156,7 +156,7 @@ function izracunaj()
         igrac["PoljeNaKomJe"]=korak
         cestitamo(igrac)
    end
-   if igrac["PoljeNaKomJe"] + broj < 23 then
+   if igrac["PoljeNaKomJe"] + broj < 23 then ----> Ovo je menjano
           prom = "pitanje"
           if odgovorIgraca == pitanjal[igrac["PoljeNaKomJe"]][6] then 
           korak=igrac["PoljeNaKomJe"]+broj
