@@ -1,9 +1,3 @@
-local jacina = 0.5
-love.audio.setVolume(jacina)                      
-muzika = love.audio.newSource("pesma.mp3","stream") 
-muzika:setLooping(true)
-muzika:play()                                                -----> podesavanje muzike
-    
 pozadina = love.graphics.newImage("PozadinaSaPoljima.jpeg")   ---> ucitala pozadinu
 pozadinap = love.graphics.newImage("pocetna.jpg") 
 kamila = love.graphics.newImage("kamila.png")
