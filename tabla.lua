@@ -59,7 +59,6 @@ pitanjal={
   {}}
 
  odgovorIgraca=0
- tacanOdgovor=false
 
 function love.draw()
 
@@ -146,11 +145,11 @@ end
         
 function proveri()
   if odgovorIgraca == pitanjal[korak][6] then 
-    tacanOdgovor=true
+    korak=korak+1
     igrac["PoljeNaKomJe"]=korak
   else
-    igrac["PoljeNaKomJe"]=igrac["PoljeNaKomJe"]
-    tacanOdgovor=false
+    korak=korak-1
+    igrac["PoljeNaKomJe"]=korak
   end
   prom="tabla"
 end
@@ -171,7 +170,6 @@ function izracunaj()
    if korak < 23 then ----> Ovo je menjano
         prom = "pitanje"
         tekst4:set("")
-        if tacanOdgovor==true then
           for k,v in pairs(igraci) do
               if k ~= redniBroj then
                  if igraci[k]["PoljeNaKomJe"] == korak then
@@ -180,7 +178,6 @@ function izracunaj()
                  end
               end      
           end
-        end         
    end
    
 end
