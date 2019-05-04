@@ -140,7 +140,7 @@ function love.load()
        tekst4=love.graphics.newText(font,"")
 
        
-pijuni= {kamila,koala,lav,lisica,panda,rakun,zec,zirafa}  
+pijuni= {kamila,koala,lav,lisica,zirafa,rakun,zec,panda}  
 
 igraci2 = {
     { Ime = "Prvi Igrac", PoljeNaKomJe = 1, Slicica = pijuni[1]},
