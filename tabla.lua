@@ -58,7 +58,8 @@ pitanjal={
   {"Druge zove sebe ne cuje. Sta je to?", "a) zvono", "b) glas","c) zvuk", "d) ime",1},
   {}}
 
- local odgovorIgraca
+ odgovorIgraca=0
+ tacanOdgovor=false
 
 function love.draw()
 
@@ -108,11 +109,11 @@ if (brojac % brojIgraca) == 0 then
   love.graphics.rectangle('fill', 400, 450, 200, 60, 35, 35)
 
   love.graphics.setColor(0, 0, 255, 100)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][1],250,120,200)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][2],150,320,150)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][3],450,320,150)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][4],150,470,150)
-  love.graphics.printf(pitanjal[igrac["PoljeNaKomJe"]+broj][5],450,470,150)
+  love.graphics.printf(pitanjal[korak][1],250,120,200)
+  love.graphics.printf(pitanjal[korak][2],150,320,150)
+  love.graphics.printf(pitanjal[korak][3],450,320,150)
+  love.graphics.printf(pitanjal[korak][4],150,470,150)
+  love.graphics.printf(pitanjal[korak][5],450,470,150)
  
 end
 end
@@ -122,27 +123,38 @@ function love.mousepressed(x,y,button,isTouched) ------> Ovo je menjano
     izracunaj()
   end
 
-  if prom=="pitanje" and x>100 and x<300 and y>300 and y<360 then 
-    odgovorIgraca = 1
-    prom = "tabla"
+  if prom=="pitanje" and x>100 and x<300 and y>300 and y<360 then
+    odgovorIgraca=1
+    proveri()
   end
 
   if prom =="pitanje" and x>400 and x<600 and y>300 and y<360 then 
     odgovorIgraca = 2
-    prom = "tabla"
+    proveri()
   end
 
   if prom == "pitanje" and x>100 and x<300 and y>450 and y<510 then 
     odgovorIgraca = 3
-    prom = "tabla"
+    proveri()
   end
 
   if prom == "pitanje" and x>400 and x<600 and y>450 and y<510 then 
     odgovorIgraca = 4
-    prom = "tabla"
+    proveri()
   end
 end
         
+function proveri()
+  if odgovorIgraca == pitanjal[korak][6] then 
+    tacanOdgovor=true
+    igrac["PoljeNaKomJe"]=korak
+  else
+    igrac["PoljeNaKomJe"]=igrac["PoljeNaKomJe"]
+    tacanOdgovor=false
+  end
+  prom="tabla"
+end
+
 
 function izracunaj()
     broj=math.random(6)
@@ -157,13 +169,9 @@ function izracunaj()
         cestitamo(igrac)
    end
    if korak < 23 then ----> Ovo je menjano
-          prom = "pitanje"
-          tekst4:set("")
-          if odgovorIgraca == pitanjal[korak][6] then 
-            igrac["PoljeNaKomJe"]=korak+1
-          else
-            igrac["PoljeNaKomJe"]=korak-1
-          end
+        prom = "pitanje"
+        tekst4:set("")
+        if tacanOdgovor==true then
           for k,v in pairs(igraci) do
               if k ~= redniBroj then
                  if igraci[k]["PoljeNaKomJe"] == korak then
@@ -172,7 +180,7 @@ function izracunaj()
                  end
               end      
           end
-                 
+        end         
    end
    
 end
@@ -214,6 +222,4 @@ end
 function love.update(dt)
 
 end
-
-
 
