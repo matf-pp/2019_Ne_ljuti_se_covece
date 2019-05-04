@@ -1,3 +1,9 @@
+local jacina = 0.5
+love.audio.setVolume(jacina)                      
+muzika = love.audio.newSource("pesma.mp3","stream") 
+muzika:setLooping(true)
+muzika:play() 
+
 pozadinskaSlika = love.graphics.newImage("pocetna.jpg")
 zivotinjice = love.graphics.newImage("zivotinjice.png")
 font = love.graphics.newFont("mojFont.ttf",50)
