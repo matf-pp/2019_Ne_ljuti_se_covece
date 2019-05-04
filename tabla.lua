@@ -151,6 +151,15 @@ function proveri()
     korak=korak-1
     igrac["PoljeNaKomJe"]=korak
   end
+  tekst4:set("")
+  for k,v in pairs(igraci) do
+    if k ~= redniBroj then
+      if igraci[k]["PoljeNaKomJe"] == korak then
+        igraci[k]["PoljeNaKomJe"]=1
+        pojedenSi(igrac,igraci[k])
+      end
+    end      
+  end
   prom="tabla"
 end
 
@@ -168,16 +177,7 @@ function izracunaj()
         cestitamo(igrac)
    end
    if korak < 23 then ----> Ovo je menjano
-        prom = "pitanje"
-        tekst4:set("")
-          for k,v in pairs(igraci) do
-              if k ~= redniBroj then
-                 if igraci[k]["PoljeNaKomJe"] == korak then
-                    igraci[k]["PoljeNaKomJe"]=1
-                    pojedenSi(igrac,igraci[k])
-                 end
-              end      
-          end
+      prom = "pitanje"
    end
    
 end
