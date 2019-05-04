@@ -72,7 +72,6 @@ function love.draw()
           love.graphics.draw(igraci[3]["Slicica"],tabla[igraci[3]["PoljeNaKomJe"]]["sirina"],tabla[igraci[3]["PoljeNaKomJe"]]["visina"])
       end
       
-----> izmenila sam da se uvek poziva sa igraci(dole ima provera za koliko igraca i postavi odgovarajucu tabelu) umesto igraci2 i igraci3 (bilo mi je lakse da se snadjem...)
 if (brojac % brojIgraca) == 0 then
          tekst:set(igraci[1]["Ime"].." je na redu. Baci kockicu!",25,25)
          igrac=igraci[1]
@@ -146,7 +145,7 @@ function proveri()
     igrac["PoljeNaKomJe"]=korak
   end
   tekst4:set("")
-  for k,v in pairs(igraci) do
+  for k = 1,brojIgraca do
     if k ~= redniBroj then
       if igraci[k]["PoljeNaKomJe"] == korak then
         igraci[k]["PoljeNaKomJe"]=1
@@ -181,13 +180,12 @@ function pojedenSi(igrac,pojedeni)
 end
 
 function neMozeDalje(igrac)
-     tekst4:set(igrac["Ime"]..", zao mi je, ne mozes dalje...")------> moze nastati problem ako igraci zadaju predugacko ime, zato OGRANICI IME IGRACA! [mozda ce se preklopiti delom tekstovi u suprotnom]
+     tekst4:set(igrac["Ime"]..", zao mi je, ne mozes dalje...") ------> moze nastati problem ako igraci zadaju predugacko ime, zato OGRANICI IME IGRACA! [mozda ce se preklopiti delom tekstovi u suprotnom]
 end
 
 function cestitamo(igrac)
   pobednik=igrac
   require("cestitamo")
-  -----> ovde jos nisam blokirala da nastave da udaraju kockicu i da se krecu ostali dok ne stignu do cilja.... [ALI TU IDE NOVI PROZOR? i tamo cete ispisati cestitamo,igraj ponovo/izadji?]
 end
 
 
