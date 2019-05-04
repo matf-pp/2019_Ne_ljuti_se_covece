@@ -118,11 +118,11 @@ end
 end
 
 function love.mousepressed(x,y,button,isTouched) ------> Ovo je menjano
-    if prom == "tabla" and x>835 and x<950 and y>475 and y<600 then
-      izracunaj()
-    end
+  if prom == "tabla" and x>835 and x<950 and y>475 and y<600 then
+    izracunaj()
+  end
 
-    if prom=="pitanje" and x>100 and x<300 and y>300 and y<360 then 
+  if prom=="pitanje" and x>100 and x<300 and y>300 and y<360 then 
     odgovorIgraca = 1
     prom = "tabla"
   end
@@ -148,25 +148,23 @@ function izracunaj()
     broj=math.random(6)
     tekst2:set(igrac["Ime"].." dobili ste broj "..tostring(broj).."!")
     brojac=brojac+1
-   if igrac["PoljeNaKomJe"] + broj > 23 then
+    korak=igrac["PoljeNaKomJe"]+broj
+   if korak > 23 then
         neMozeDalje(igrac)
    end
-   if igrac["PoljeNaKomJe"] + broj == 23 then
-        korak=igrac["PoljeNaKomJe"]+broj
+   if korak == 23 then
         igrac["PoljeNaKomJe"]=korak
         cestitamo(igrac)
    end
-   if igrac["PoljeNaKomJe"] + broj < 23 then ----> Ovo je menjano
+   if korak < 23 then ----> Ovo je menjano
           prom = "pitanje"
-          if odgovorIgraca == pitanjal[igrac["PoljeNaKomJe"]+broj][6] then 
-          korak=igrac["PoljeNaKomJe"]+broj
+          if odgovorIgraca == pitanjal[korak][6] then 
+            igrac["PoljeNaKomJe"]=korak+1
           else
-            korak=igrac["PoljeNaKomJe"]+0
+            igrac["PoljeNaKomJe"]=korak-1
           end
-
-          igrac["PoljeNaKomJe"]=korak
           for k,v in pairs(igraci) do
-              if not k == redniBroj then
+              if k ~= redniBroj then
                  if igraci[k]["PoljeNaKomJe"] == korak then
                     igraci[k]["PoljeNaKomJe"]=1
                     pojedenSi(igrac,igraci[k])
@@ -215,4 +213,6 @@ end
 function love.update(dt)
 
 end
+
+
 
