@@ -93,9 +93,9 @@ function love.draw()
   love.graphics.draw(panda,710,310)
   
   love.graphics.setColor(70/255,130/255,180/255,1)
-  love.graphics.rectangle('fill',680,20,100,50,35,35)
+  love.graphics.rectangle('fill',830,20,100,50,35,35)
   love.graphics.setColor(1,1,1,100)
-  love.graphics.draw(tekst,700,20)
+  love.graphics.draw(tekst,850,20)
   
   love.graphics.setColor(unpack(textbox1.colors.background))
   love.graphics.rectangle('fill', textbox1.x, textbox1.y, textbox1.width, textbox1.height)
