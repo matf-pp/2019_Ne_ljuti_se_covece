@@ -11,6 +11,12 @@ rakun = love.graphics.newImage("rakun.png")
 zec = love.graphics.newImage("zeka.png")
 panda = love.graphics.newImage("panda.png")
 
+font2 = love.graphics.newFont(12) 
+poruka2=love.graphics.newText(font2,"")
+poruka3=love.graphics.newText(font2,"")
+poruka22=love.graphics.newText(font2,"")
+poruka32=love.graphics.newText(font2,"")
+
 pijuni= {kamila,koala,lav,lisica,zirafa,rakun,zec,panda}  
 
 igraci2 = {
@@ -97,6 +103,11 @@ function love.draw()
   love.graphics.setColor(1,1,1,100)
   love.graphics.draw(tekst,850,20)
   
+  love.graphics.draw(poruka2,10,275)
+  love.graphics.draw(poruka3,10,475)
+  love.graphics.draw(poruka22,230,275)
+  love.graphics.draw(poruka32,230,475)
+  
   love.graphics.setColor(unpack(textbox1.colors.background))
   love.graphics.rectangle('fill', textbox1.x, textbox1.y, textbox1.width, textbox1.height)
 
@@ -143,14 +154,59 @@ function love.textinput (text)
 end
 
 function love.mousepressed (x, y)
-    if x>=830 and x<=930 and y>=20 and y<=70 then
+   
+  if x>=830 and x<=930 and y>=20 and y<=70 then
       igraci[1]["Ime"]=string.sub(textbox1.text,20)
       igraci[2]["Ime"]=string.sub(textbox2.text,21)
       if brojIgraca==3 then
         igraci[3]["Ime"]=string.sub(textbox3.text,21)
       end
-      require("tabla")
+
+      if brojIgraca==2 then
+          
+if igraci[1]["Slicica"] == igraci[2]["Slicica"] or igraci[2]["Ime"] == igraci[1]["Ime"] then
+
+       if igraci[1]["Slicica"] == igraci[2]["Slicica"] then
+            poruka22:set("Figurica je vec zauzeta...")
+       else poruka22:set("")
+       end
+        if igraci[2]["Ime"] == igraci[1]["Ime"] then
+             poruka2:set("Zao mi je, to ime je vec zauzeto...")
+         else  poruka2:set("")
+         end
+       
+       
+else require("tabla")
+end
+       
+      else if brojIgraca==3 then
+if igraci[1]["Slicica"] == igraci[2]["Slicica"] or igraci[3]["Slicica"] == igraci[1]["Slicica"] or igraci[3]["Slicica"] == igraci[2]["Slicica"] or igraci[2]["Ime"] == igraci[1]["Ime"] or igraci[3]["Ime"] == igraci[1]["Ime"] or igraci[3]["Ime"] == igraci[2]["Ime"] then
+               if igraci[1]["Slicica"] == igraci[2]["Slicica"] then
+                       poruka22:set("Figurica je vec zauzeta...")
+               else poruka22:set("")
+               end
+               if igraci[3]["Slicica"] == igraci[1]["Slicica"] or igraci[3]["Slicica"] == igraci[2]["Slicica"] then
+                       poruka32:set("Figurica je vec zauzeta...")
+               else poruka32:set("")
+               end
+                  
+               if igraci[2]["Ime"] == igraci[1]["Ime"] then
+                               poruka2:set("Zao mi je, to ime je vec zauzeto...")
+               else poruka2:set("")
+               end
+               if igraci[3]["Ime"] == igraci[1]["Ime"] or igraci[3]["Ime"] == igraci[2]["Ime"] then
+                               poruka3:set("Zao mi je, to ime je vec zauzeto...")
+               else poruka3:set("")  
+               end         
+                    
+else require("tabla")
+end      
+          end
+        end
     end
+    
+    ---> ne mogu se vise odabrati ista imena/figurice
+  
     if x>=20 and x<120 and y>=100 and y<=200 then
       igraci[1]["Slicica"]=pijuni[1]
     end
