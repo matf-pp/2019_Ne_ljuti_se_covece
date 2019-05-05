@@ -1,8 +1,8 @@
-pozadina = love.graphics.newImage("PozadinaSaPoljima.jpeg")   ---> ucitala pozadinu
+pozadina = love.graphics.newImage("PozadinaSaPoljima.jpeg")   ---> ucitana pozadina
 pozadinap = love.graphics.newImage("pocetna.jpg") 
 kamila = love.graphics.newImage("kamila.png")
 koala = love.graphics.newImage("koala.png") 
-lav = love.graphics.newImage("lav.png")                 -----> ucitala zivotinjice (slike)
+lav = love.graphics.newImage("lav.png")                 -----> ucitane zivotinjice (slike)
 lisica = love.graphics.newImage("lisica.png")      
 zirafa = love.graphics.newImage("zirafa.png")
 rakun = love.graphics.newImage("rakun.png")
@@ -110,7 +110,7 @@ if (brojac % brojIgraca) == 0 then
 end
 end
 
-function love.mousepressed(x,y,button,isTouched) ------> Ovo je menjano
+function love.mousepressed(x,y,button,isTouched)
   if prom == "tabla" and x>835 and x<950 and y>475 and y<600 then
     izracunaj()
   end
