@@ -38,19 +38,24 @@ function love.mousepressed(x,y,button,isTouched)
     if x>100 and x<300 and y>100 and y<160 then
         brojIgraca = 2
         require("odabir")
---         love.event.quit() 
     end
     if x>100 and x<300 and y>260 and y<320 then
          brojIgraca = 3
          require("odabir")
---          love.event.quit()
-
     end
     if x>100 and x<300 and y>420 and y<480 then
            love.event.quit()
     end
     
 
+end
+
+
+function love.keypressed(key)
+   if (key == "m") then jacina = 0.0 end
+   if (key == "u") then jacina = 0.5 end               ---> mute i unmute za pozadinsku muziku ---> klikom na m tj. na u
+   
+   love.audio.setVolume(jacina)
 end
 
 
