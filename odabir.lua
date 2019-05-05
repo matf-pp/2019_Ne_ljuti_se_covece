@@ -143,7 +143,7 @@ function love.textinput (text)
 end
 
 function love.mousepressed (x, y)
-    if x>=680 and x<=780 and y>=20 and y<=70 then
+    if x>=830 and x<=930 and y>=20 and y<=70 then
       igraci[1]["Ime"]=string.sub(textbox1.text,20)
       igraci[2]["Ime"]=string.sub(textbox2.text,21)
       if brojIgraca==3 then
