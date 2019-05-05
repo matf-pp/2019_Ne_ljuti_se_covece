@@ -176,11 +176,11 @@ function izracunaj()
 end
 
 function pojedenSi(igrac,pojedeni)
-     tekst4:set(igrac["Ime"]..", pojeo si " .. pojedeni["Ime"] .. "!") ------> moze nastati problem ako igraci zadaju predugacko ime, zato OGRANICI IME IGRACA! [mozda ce se preklopiti delom tekstovi u suprotnom]
+     tekst4:set(igrac["Ime"]..", pojeo si " .. pojedeni["Ime"] .. "!") 
 end
 
 function neMozeDalje(igrac)
-     tekst4:set(igrac["Ime"]..", zao mi je, ne mozes dalje...") ------> moze nastati problem ako igraci zadaju predugacko ime, zato OGRANICI IME IGRACA! [mozda ce se preklopiti delom tekstovi u suprotnom]
+     tekst4:set(igrac["Ime"]..", zao mi je, ne mozes dalje...") 
 end
 
 function cestitamo(igrac)
