@@ -6,7 +6,7 @@ Ne ljuti se čoveče je igrica za 2 ili 3 igrača. Sama igra veoma nalikuje na p
 
 ## Programski jezici i tehnologije
 
-Igrica će biti izrađena u programskom jeziku Lua korišćenjem LÖVE framework-a.
+Igrica je izrađena u programskom jeziku Lua korišćenjem LÖVE framework-a.
 
 ## Pokretanje
 Igricu je moguće pokrenuti i na Windows i na Linux računarima.
