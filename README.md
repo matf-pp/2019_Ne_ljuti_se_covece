@@ -17,7 +17,7 @@ Ukoliko igricu pokrećete na Linux-u neophodno je preuzeti i instalirati LOVE fr
 sudo add-apt-repository ppa:bartbes/love-stable  
 sudo apt-get update  
 sudo apt-get install love  
-Nakon instaliranja LOVE framework-a igricu možete pokrenuti komandom love /path/to/game/game.love, gde deo /path/to/game/ označava putanju do direktorijuma u koji ste smestili foldre game.love nakon što ste otpakovali zip fajl koji ste download-ovali.
+Nakon instaliranja LOVE framework-a igricu možete pokrenuti komandom love /path/to/game/game.love, gde deo /path/to/game/ označava putanju do direktorijuma u koji ste smestili folder game.love nakon što ste otpakovali zip fajl koji ste download-ovali.
 
 ## Autori
 
