@@ -1,13 +1,5 @@
 pozadina = love.graphics.newImage("PozadinaSaPoljima.jpeg")   ---> ucitana pozadina
 pozadinap = love.graphics.newImage("pocetna.jpg") 
-kamila = love.graphics.newImage("kamila.png")
-koala = love.graphics.newImage("koala.png") 
-lav = love.graphics.newImage("lav.png")                 -----> ucitane zivotinjice (slike)
-lisica = love.graphics.newImage("lisica.png")      
-zirafa = love.graphics.newImage("zirafa.png")
-rakun = love.graphics.newImage("rakun.png")
-zec = love.graphics.newImage("zeka.png")
-panda = love.graphics.newImage("panda.png")
        
 kockica=love.graphics.newImage("kockica.png")
 font=love.graphics.newFont(20)
@@ -16,6 +8,7 @@ tekst2=love.graphics.newText(font,"")
 tekst3=love.graphics.newText(font,"")
 tekst4=love.graphics.newText(font,"")
 
+math.randomseed(os.time())
        
 pijuni= {kamila,koala,lav,lisica,zirafa,rakun,zec,panda}  
 
