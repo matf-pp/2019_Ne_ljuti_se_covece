@@ -133,6 +133,9 @@ function proveri()
   if odgovorIgraca == pitanjal[korak][6] then 
     korak=korak+1
     igrac["PoljeNaKomJe"]=korak
+    if korak == 23 then       --> ovde nastao problem
+         cestitamo(igrac)     --> ovde nastao problem
+    end                       --> ovde nastao problem
   else
     korak=korak-1
     igrac["PoljeNaKomJe"]=korak
