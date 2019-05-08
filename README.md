@@ -13,7 +13,7 @@ Igricu je moguće pokrenuti i na Windows i na Linux računarima.
 
 Ukoliko igricu pokrećete na Windows-u neophodno je download-ovati zip fajl i otpakovati folder Covece, ne ljuti se - Windows. Nakon što otpakujete dati folder igricu je moguće pokrenuti dvoklikom na fajl Covece, ne ljuti se.exe. Nakon toga će se pokrenuti igrica i nije potrebno instalirati nikakva dodatna okruženja.
 
-Ukoliko igricu pokrećete na Linux-u neophodno je preuzeti i instalirati LOVE framework (najmanje verziju 11.0, ali poželjno verziju 11.2). To možete uraditi koristeći naredne komande:
+Ukoliko igricu pokrećete na Linux-u neophodno je preuzeti i instalirati LOVE framework (najmanje verziju 11.0, ali poželjno verziju 11.2). To možete uraditi koristeći naredne komande:  
 sudo add-apt-repository ppa:bartbes/love-stable  
 sudo apt-get update  
 sudo apt-get install love  
